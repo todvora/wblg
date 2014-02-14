@@ -5,9 +5,10 @@ body {
 #feed h1 {
     color: #008baf;
     text-decoration: underline;
+    margin: 5px 0;
 }
 
-#feed div {
+#feed div, #footer {
     padding: 0.6em 34px 0.6em 14px;
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #fafafa;
@@ -34,4 +35,12 @@ a {
 
 .author:after {
     content: " |"
+}
+
+#footer {
+    color:#666;
+}
+
+#footer a {
+  color: #008baf;
 }
