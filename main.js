@@ -2,13 +2,13 @@ google.load("feeds", "1");
 
 function initialize() {
     var feed = new google.feeds.Feed("http://www.weblogy.cz/export/rss/");
-    feed.setNumEntries(50);
+    feed.setNumEntries(20);
     feed.load(function (result) {
         if (!result.error) {
+            document.getElementById("loader").remove();
             var container = document.getElementById("feed");
             for (var i = 0; i < result.feed.entries.length; i++) {
                 var entry = result.feed.entries[i];
-                console.log(entry);
                 container.appendChild(createEntry(entry));
             }
         }
@@ -48,15 +48,15 @@ function createEntry(entry) {
 }
 
 function formatDate(dateStr) {
-    var datum = new Date(dateStr);
+    var date = new Date(dateStr);
     var weekday = new Array("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota");
     var result = "";
-    result += weekday[datum.getDay()] + " ";
-    result += datum.getDate() + ". ";
-    result += (1 + datum.getMonth()) + ". ";
-    result += datum.getFullYear() + ". ";
-    result += datum.getHours() + ":";
-    result += datum.getMinutes();
+    result += weekday[date.getDay()] + " ";
+    result += date.getDate() + ". ";
+    result += (1 + date.getMonth()) + ". ";
+    result += date.getFullYear() + ". ";
+    result += date.getHours() + ":";
+    result += date.getMinutes();
     return result;
 }
 
