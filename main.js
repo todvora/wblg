@@ -1,19 +1,30 @@
 google.load("feeds", "1");
 
+google.setOnLoadCallback(initialize);
+
 function initialize() {
+    downloadAndRender(function(){
+        var loaderElement = document.getElementById("loader");
+        if (loaderElement != null) {
+            loaderElement.parentNode.removeChild(loaderElement);
+        }
+    });
+    document.getElementById("reload").onclick = reloadHandler;
+}
+
+function downloadAndRender(doneCallback)  {
     var feed = new google.feeds.Feed("http://www.weblogy.cz/export/rss/");
     feed.setNumEntries(20);
     feed.load(function (result) {
         if (!result.error) {
-
-            var loaderElement = document.getElementById("loader");
-            loaderElement.parentNode.removeChild(loaderElement);
-
             var container = document.getElementById("feed");
             for (var i = 0; i < result.feed.entries.length; i++) {
                 var entry = result.feed.entries[i];
                 container.appendChild(createEntry(entry));
             }
+        }
+        if(doneCallback != null) {
+            doneCallback();
         }
     });
 }
@@ -63,5 +74,14 @@ function formatDate(dateStr) {
     return result;
 }
 
-
-google.setOnLoadCallback(initialize);
+function reloadHandler() {
+    var link = this;
+    var origText = this.innerHTML;
+    this.innerHTML = "refreshing...";
+    downloadAndRender(function () {
+        link.innerHTML = "...done";
+        setTimeout(function () {
+            link.innerHTML = origText
+        }, 5000);
+    });
+}

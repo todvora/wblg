@@ -55,3 +55,8 @@ a {
 #footer a {
   color: #97310e;
 }
+
+#reload {
+    float: right;
+    cursor: pointer;
+}
