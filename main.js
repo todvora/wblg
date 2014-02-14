@@ -9,7 +9,6 @@ function initialize() {
             loaderElement.parentNode.removeChild(loaderElement);
         }
     });
-    document.getElementById("reload").onclick = reloadHandler;
 }
 
 function downloadAndRender(doneCallback)  {
@@ -72,16 +71,4 @@ function formatDate(dateStr) {
     result += date.getHours() + ":";
     result += date.getMinutes();
     return result;
-}
-
-function reloadHandler() {
-    var link = this;
-    var origText = this.innerHTML;
-    this.innerHTML = "refreshing...";
-    downloadAndRender(function () {
-        link.innerHTML = "...done";
-        setTimeout(function () {
-            link.innerHTML = origText
-        }, 5000);
-    });
 }

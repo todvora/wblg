@@ -48,15 +48,10 @@ a {
     content: " |"
 }
 
-#header, #footer, #loader {
+#header, #footer, #loader, #header a {
     color:#666;
 }
 
 #footer a {
   color: #97310e;
-}
-
-#reload {
-    float: right;
-    cursor: pointer;
 }
