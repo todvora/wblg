@@ -10,13 +10,13 @@ body {
 }
 
 #feed div, #footer {
-    padding: 0.6em 34px 0.6em 14px;
+    padding: 0.6em;
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #fafafa;
 }
 
 #header {
-    padding: 0.6em 34px 0.6em 14px;
+    padding: 0.6em;
     font-weight: bold;
     font-size: 110%;
 }
