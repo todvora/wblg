@@ -5,7 +5,10 @@ function initialize() {
     feed.setNumEntries(20);
     feed.load(function (result) {
         if (!result.error) {
-            document.getElementById("loader").remove();
+
+            var loaderElement = document.getElementById("loader");
+            loaderElement.parentNode.removeChild(loaderElement);
+
             var container = document.getElementById("feed");
             for (var i = 0; i < result.feed.entries.length; i++) {
                 var entry = result.feed.entries[i];
