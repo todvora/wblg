@@ -45,7 +45,8 @@ a {
 }
 
 .author:after {
-    content: " |"
+    content: " |";
+    font-weight: normal;
 }
 
 #header, #footer, #loader, #header a {
