@@ -1,0 +1,37 @@
+body {
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#feed h1 {
+    color: #008baf;
+    text-decoration: underline;
+}
+
+#feed div {
+    padding: 0.6em 34px 0.6em 14px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #fafafa;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.author, .date {
+    padding: 0 2px;
+    color: #a0a0a0;
+}
+
+.author {
+    font-weight: bold;
+}
+
+.author:after {
+    content: " |"
+}
