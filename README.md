@@ -3,6 +3,8 @@ WBLG
 
 Alternativní UI pro weblogy.cz - agregátor českých blogů zaměřených na internet a marketing.
 
+Demo / běžící aplikaci si můžete prohlédnout na http://todvora.github.io/wblg
+
 Proč mít alternativní rozhraní
 ------------------------------
 - Nechcete koukat na reklamy, twitter stream, kalendář, upoutávky na ostatní projekty iinfa.
@@ -23,7 +25,7 @@ Asi bude snazší od začátku celou věc postavit jinak. Když nebude třeba PH
 
 Google Feed API
 ---------------
-Jenže bez backendu nemůžeme načítat RSS feed přímo ve stránce JavaScriptem. Brání nám v tom Same Origin Policy. Můžeme ale využít API od Google, které problém řeší (obchází) - https://developers.google.com/feed/ .  
+Jenže bez backendu nemůžeme načítat RSS feed přímo ve stránce JavaScriptem. Brání nám v tom Same Origin Policy. Můžeme ale využít [Feed API](https://developers.google.com/feed/) od Google, které problém řeší (obchází).  
 
 API umožňuje načíst RSS přímo v prohlížeči a nepotřebujeme žádný backend. Paráda. 
 
@@ -31,14 +33,14 @@ Dáváme věci dohromady
 ---------------------
 Máme tedy vyřešeno, jak RSS feed načíst. Víme, kde hostovat. Zbývá vytvořit jednoduchou HTML stránku, přidat kapku JavaScriptu a nastylovat. Odpustíme si zbytečnosti jako jQuery, responzivní framework (Bootstrap/Foundation) a grafiku. Vznikne minimalistická varianta RSS čtečky. 
 
-Když pak zdrojáky commitneme do větve 'gh-pages', GitHub nám poskytne hotový výsledek na adrese http://todvora.github.io/wblg . 
+Když pak zdrojáky commitneme do větve 'gh-pages', GitHub nám poskytne běžící aplikaci na adrese http://todvora.github.io/wblg
 
 Kolik toho FUPu ušetřím?
 ---------------------------
-Poměrně dost. Originální weblogy na první načtení udělají 49 requestů, přenesou 800KB. Moje minimalistická verze udělá 8 requestů a přenese 66KB. První načtení je zhruba 12x úspornější na data. Další načtení jsou ještě lepší. Originál weblogy.cz jsou na 407KB a moje varianta na 16KB, tedy zhruba 25x úspornější. Na mobilu s velmi špatným a limitovaným připojením zásadní rozdíl. Navíc jednoduchá stránka nezabere tolik paměti telefonu a je responzivní - lépe se ovládá. 
+Originální weblogy na první načtení udělají 49 requestů, přenesou 800KB. Moje minimalistická verze udělá 8 requestů a přenese 66KB. První načtení je zhruba 12x úspornější na data. Další načtení jsou ještě lepší. Originál weblogy.cz jsou na 407KB a moje varianta na 16KB, tedy zhruba 25x úspornější. Na mobilu s velmi špatným a limitovaným připojením zásadní rozdíl. Navíc jednoduchá stránka nezabere tolik paměti telefonu a je responzivní - lépe se ovládá. 
 
 Je libo vlastní variantu?
 -------------------------
 Líbí se vám nápad? Klidně používejte mou stránku http://todvora.github.io/wblg . Pak ale budete odkázáni na vzhled a chování, které vyhovuje mě. A co je dobré pro mě nemusí být super pro vás.
 
-Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt forknete (tlačítkem vpravo nahoře). V tu chvíli máte ihned bez práce vlastní běžící instanci dostupnou na vasejmeno.github.io/wblg. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. 
+Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forknete](https://github.com/todvora/wblg/fork). V tu chvíli máte ihned bez práce vlastní běžící instanci dostupnou na vasejmeno.github.io/wblg. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. 
