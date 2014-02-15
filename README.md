@@ -1,7 +1,7 @@
 WBLG
 ====
 
-Alternativní UI pro weblogy.cz - agregátor českých blogů zaměřených na internet a marketing.
+Alternativní UI pro [weblogy.cz](http://www.weblogy.cz) - agregátor českých blogů zaměřených na internet a marketing.
 
 Demo / běžící aplikaci si můžete prohlédnout na http://todvora.github.io/wblg
 
@@ -14,24 +14,22 @@ Proč mít alternativní rozhraní
 
 Kde vzít data
 -------------
-Weblogy poskytují svůj vlastní RSS feed, vzniklý agregací všech těch desítek a stovek skvělých českých blogů. Není tak třeba vytvářet a udržovat vlastní seznamy RSS kanálů, stačí zpracovávat tento agregovaný feed - http://www.weblogy.cz/export/rss/ .
+Weblogy poskytují svůj vlastní [RSS feed](http://www.weblogy.cz/export/rss/), vzniklý agregací všech těch desítek a stovek skvělých českých blogů. Není tak třeba vytvářet a udržovat vlastní seznamy RSS kanálů, stačí zpracovávat tento agregovaný feed.
 
 
 Žádný backend + žádný hosting = žádné problémy
 ----------------------------------------------
 Bylo by snadné napsat krátký PHP skript, který načte RSS feed a vygeneruje stránku s náhledy článků. Jenže pak přijdou ty problémy. Kde vzít hosting (ideálně zdarma), aby dovedl spouštět PHP skripty. Jak zálohovat, kde verzovat? Kterak se o svou práci podělit s dalšími?
 
-Asi bude snazší od začátku celou věc postavit jinak. Když nebude třeba PHP, ale jen JavaScript na frontendu, nemusím mít plnohodnotný hosting. Stačí takový, který umí statické stránky. A náhodou jeden takový (zdarma) poskytuje zrovna GitHub. S GitHubem přichází další výhody automaticky - verzování a zálohování, dostupnost, možnost sdílet kód, snadné forkování. O GitHub statickém hostingu si přečtěte na http://pages.github.com/.
+Asi bude snazší od začátku celou věc postavit jinak. Když nebude třeba PHP, ale jen JavaScript na frontendu, nemusím mít plnohodnotný hosting. Stačí takový, který umí statické stránky. A náhodou jeden takový zdarma poskytuje zrovna [GitHub](http://pages.github.com/). S GitHubem přichází další výhody automaticky - verzování a zálohování, dostupnost, možnost sdílet kód, snadné forkování. 
 
 Google Feed API
 ---------------
-Jenže bez backendu nemůžeme načítat RSS feed přímo ve stránce JavaScriptem. Brání nám v tom Same Origin Policy. Můžeme ale využít [Feed API](https://developers.google.com/feed/) od Google, které problém řeší (obchází).  
-
-API umožňuje načíst RSS přímo v prohlížeči a nepotřebujeme žádný backend. Paráda. 
+Jenže bez backendu nemůžeme načítat RSS feed přímo ve stránce JavaScriptem. Brání nám v tom [Same Origin Policy](http://en.wikipedia.org/wiki/Same-origin_policy). Můžeme ale využít [Feed API](https://developers.google.com/feed/) od Google, které problém řeší (obchází) a umožňuje načíst RSS JavaScriptem v prohlížeči. Nepotřebujeme žádný backend, paráda. 
 
 Dáváme věci dohromady
 ---------------------
-Máme tedy vyřešeno, jak RSS feed načíst. Víme, kde hostovat. Zbývá vytvořit jednoduchou HTML stránku, přidat kapku JavaScriptu a nastylovat. Odpustíme si zbytečnosti jako jQuery, responzivní framework (Bootstrap/Foundation) a grafiku. Vznikne minimalistická varianta RSS čtečky. 
+Máme tedy vyřešeno, jak RSS feed načíst. Víme, kde hostovat. Zbývá vytvořit jednoduchou HTML stránku, přidat kapku JavaScriptu a nastylovat. Odpustíme si zbytečnosti jako jQuery, responzivní framework (Bootstrap/Foundation) a grafiku. Cílem minimalistická varianta RSS čtečky. 
 
 Když pak zdrojáky commitneme do větve 'gh-pages', GitHub nám poskytne běžící aplikaci na adrese http://todvora.github.io/wblg
 
@@ -43,4 +41,4 @@ Je libo vlastní variantu?
 -------------------------
 Líbí se vám nápad? Klidně používejte mou stránku http://todvora.github.io/wblg . Pak ale budete odkázáni na vzhled a chování, které vyhovuje mě. A co je dobré pro mě nemusí být super pro vás.
 
-Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forknete](https://github.com/todvora/wblg/fork). V tu chvíli máte ihned bez práce vlastní běžící instanci dostupnou na vasejmeno.github.io/wblg. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. 
+Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forknete](https://github.com/todvora/wblg/fork). V tu chvíli máte bez práce vlastní běžící instanci dostupnou na vasejmeno.github.io/wblg. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. 
