@@ -1,18 +1,11 @@
 body {
     font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    color: #666;
 }
 
-#feed h1 {
-    color: #97310e;
-    text-decoration: underline;
-    margin: 5px 0;
-    font-size: 170%;
-}
-
-#feed div, #footer {
-    padding: 0.6em;
-    border-top: 1px solid #ebebeb;
-    border-bottom: 1px solid #fafafa;
+#container {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #header {
@@ -21,23 +14,37 @@ body {
     font-size: 110%;
 }
 
+#feed h1 {
+    text-decoration: underline;
+    margin: 5px 0;
+    font-size: 170%;
+}
+
+#footer a, #feed h1 {
+    color: #97310e;
+}
+
+#feed div, #footer {
+    padding: 0.6em;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #fafafa;
+}
+
+#feed p {
+    color: #000;
+}
+
 #loader {
     padding: 10px;
 }
 
 a {
     text-decoration: none;
-    color: #000;
-}
-
-#container {
-    max-width: 600px;
-    margin: 0 auto;
+    color: #666;
 }
 
 .author, .date {
     padding: 0 2px;
-    color:#666;
 }
 
 .author {
@@ -47,12 +54,4 @@ a {
 .author:after {
     content: " |";
     font-weight: normal;
-}
-
-#header, #footer, #loader, #header a {
-    color:#666;
-}
-
-#footer a {
-  color: #97310e;
 }

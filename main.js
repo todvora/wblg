@@ -17,10 +17,13 @@ function downloadAndRender(doneCallback)  {
     feed.load(function (result) {
         if (!result.error) {
             var container = document.getElementById("feed");
-            for (var i = 0; i < result.feed.entries.length; i++) {
-                var entry = result.feed.entries[i];
-                container.appendChild(createEntry(entry));
+            var feedEntries = result.feed.entries;
+            for (var i = 0; i < feedEntries.length; i++) {
+                var feedEntry = feedEntries[i];
+                container.appendChild(createArticleEntry(feedEntry));
             }
+        } else {
+            alert(result.error);
         }
         if(doneCallback != null) {
             doneCallback();
@@ -28,9 +31,10 @@ function downloadAndRender(doneCallback)  {
     });
 }
 
-function createEntry(entry) {
-    var div = document.createElement("div");
+function createArticleEntry(entry) {
+    var oneArticleDiv = document.createElement("div");
 
+    // weblogy RSS feed provides in title both 'original blog name' and 'article title', separated by //
     var title = entry.title.split(" // ");
 
     var heading = document.createElement("h1");
@@ -47,27 +51,28 @@ function createEntry(entry) {
     date.appendChild(document.createTextNode(formatDate(entry.publishedDate)));
     date.setAttribute("class", "date");
 
+    oneArticleDiv.appendChild(heading);
+    oneArticleDiv.appendChild(text);
+    oneArticleDiv.appendChild(author);
+    oneArticleDiv.appendChild(date);
 
-    div.appendChild(heading);
-    div.appendChild(text);
-    div.appendChild(author);
-    div.appendChild(date);
-
+    // whole article div is link (good for small screen devices)
     var link = document.createElement("a");
-    link.setAttribute("href", entry.link)
+    link.setAttribute("href", entry.link);
 
-    link.appendChild(div);
+    link.appendChild(oneArticleDiv);
     return link;
 }
 
+var WEEKDAYS = new Array("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota");
+
 function formatDate(dateStr) {
     var date = new Date(dateStr);
-    var weekday = new Array("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota");
     var result = "";
-    result += weekday[date.getDay()] + " ";
-    result += date.getDate() + ". ";
-    result += (1 + date.getMonth()) + ". ";
-    result += date.getFullYear() + ". ";
+    result += WEEKDAYS[date.getDay()] + " ";
+    result += date.getDate() + ".";
+    result += (1 + date.getMonth()) + ".";
+    result += date.getFullYear() + " ";
     result += date.getHours() + ":";
     result += date.getMinutes();
     return result;
