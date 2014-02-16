@@ -42,3 +42,8 @@ Je libo vlastní variantu?
 Líbí se vám nápad? Klidně používejte mou stránku http://todvora.github.io/wblg . Pak ale budete odkázáni na vzhled a chování, které vyhovuje mě. A co je dobré pro mě nemusí být super pro vás.
 
 Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forknete](https://github.com/todvora/wblg/fork). V tu chvíli máte bez práce vlastní připravenu vlastní instanci. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. První push do vaší větve `gh-pages` spustí build a během několika minut máte dostupnou aplikaci na `vasejmeno.github.io/wblg` (samotný fork zřejmě nespustí build `gh-pages` větve a nenasadí ji, [je třeba první push](http://stackoverflow.com/questions/8587321/github-pages-in-forked-repo)).  
+
+
+Je to fér k originálním weblogům?
+---------------------------------
+Doufám, že ano. V zásadě jde jen o webovou RSS čtečku, přístupnou bez přihlášení. Weblogy poskytují RSS feed dobrovolně a veřejně. A já sám svůj [blog](http://www.tomas-dvorak.cz) také poskytuji weblogům ke zpracování. Pokud ale na věc máte jiný názor, rád si jej přečtu a zvážím, ať již na twitteru [@tdvorak](https://twitter.com/tdvorak) nebo na e-mailu [todvora@gmail.com](mailto:todvora@gmail.com).
