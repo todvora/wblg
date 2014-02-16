@@ -41,4 +41,4 @@ Je libo vlastní variantu?
 -------------------------
 Líbí se vám nápad? Klidně používejte mou stránku http://todvora.github.io/wblg . Pak ale budete odkázáni na vzhled a chování, které vyhovuje mě. A co je dobré pro mě nemusí být super pro vás.
 
-Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forknete](https://github.com/todvora/wblg/fork). V tu chvíli máte bez práce vlastní běžící instanci dostupnou na vasejmeno.github.io/wblg. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. 
+Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forknete](https://github.com/todvora/wblg/fork). V tu chvíli máte bez práce vlastní připravenu vlastní instanci. Tu si můžete měnit k vašim představám. Jen provedete úpravu a commitnete. Nic víc není třeba. První push do vaší větve gh-pages spustí build a během nez minut máte dostupnou aplikaci na vasejmeno.github.io/wblg (samotný fork zřejmě nespustí build gh-pages větve a nenasadí ji, je třeba nějaký push).  
