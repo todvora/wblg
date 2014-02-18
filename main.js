@@ -48,7 +48,7 @@ function createArticleEntry(entry) {
     author.setAttribute("class", "author");
 
     var date = document.createElement("span");
-    date.appendChild(document.createTextNode(formatDate(entry.publishedDate)));
+    date.appendChild(document.createTextNode(getFormattedDate(entry.publishedDate)));
     date.setAttribute("class", "date");
 
     oneArticleDiv.appendChild(heading);
@@ -66,14 +66,30 @@ function createArticleEntry(entry) {
 
 var WEEKDAYS = new Array("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota");
 
-function formatDate(dateStr) {
+var currentDate = new Date();
+var TODAY = formatDate(currentDate, false);
+var YESTERDAY = formatDate(new Date().setDate(currentDate.getDate() -1), false);
+
+function getFormattedDate(dateStr) {
+    var result = formatDate(dateStr, true);
+    return result.replace(TODAY, "dnes").replace(YESTERDAY, "včera");
+}
+
+function formatDate(dateStr, includeTime) {
     var date = new Date(dateStr);
     var result = "";
     result += WEEKDAYS[date.getDay()] + " ";
     result += date.getDate() + ".";
     result += (1 + date.getMonth()) + ".";
-    result += date.getFullYear() + " ";
-    result += date.getHours() + ":";
-    result += date.getMinutes();
+    result += date.getFullYear();
+    if (includeTime) {
+        result = result + " ";
+        result += date.getHours() + ":";
+        result += padTwoDigits(date.getMinutes());
+    }
     return result;
+}
+
+function padTwoDigits(n) {
+    return (n < 10) ? ("0" + n) : n;
 }
