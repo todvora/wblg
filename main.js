@@ -5,7 +5,7 @@ google.setOnLoadCallback(initialize);
 function initialize() {
     downloadAndRender(function(){
         var loaderElement = document.getElementById("loader");
-        if (loaderElement != null) {
+        if (loaderElement !== null) {
             loaderElement.parentNode.removeChild(loaderElement);
         }
     });
@@ -25,7 +25,7 @@ function downloadAndRender(doneCallback)  {
         } else {
             alert(result.error);
         }
-        if(doneCallback != null) {
+        if(doneCallback !== null) {
             doneCallback();
         }
     });
