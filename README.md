@@ -5,6 +5,8 @@ Alternativní UI pro [weblogy.cz](http://www.weblogy.cz) - agregátor českých 
 
 Demo / běžící aplikaci si můžete prohlédnout na http://todvora.github.io/wblg
 
+[![Build Status](https://travis-ci.org/todvora/wblg.svg)](https://travis-ci.org/todvora/wblg)
+
 Proč mít alternativní rozhraní
 ------------------------------
 - Nechcete koukat na reklamy, twitter stream, kalendář, upoutávky na ostatní projekty iinfa.
