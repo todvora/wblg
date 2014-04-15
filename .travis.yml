@@ -4,4 +4,8 @@ node_js:
 install:
  - npm install jshint -g
 script:
- - jshint main.js
+ - jshint .
+branches:
+  only:
+    - master
+    - gh-pages
