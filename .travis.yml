@@ -6,7 +6,7 @@ install:
  - npm install PrettyCSS -g
 script:
  - jshint main.js
- - prettycss main.css
+ - prettycss --ignore suggest-relative-unit:px main.css >/dev/null
 branches:
   only:
     - master
