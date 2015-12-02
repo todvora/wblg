@@ -1,34 +1,30 @@
-google.load("feeds", "1");
-
-google.setOnLoadCallback(initialize);
-
-function initialize() {
-    downloadAndRender(function(){
-        var loaderElement = document.getElementById("loader");
-        if (loaderElement !== null) {
-            loaderElement.parentNode.removeChild(loaderElement);
-        }
-    });
+function constructUrl(feedLink) {
+  var yql = 'select * from xml where url="' + feedLink + '"';
+  return 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(yql) + '&format=json&diagnostics=false&callback=render';
 }
 
-function downloadAndRender(doneCallback)  {
-    var feed = new google.feeds.Feed("http://www.weblogy.cz/export/rss/");
-    feed.setNumEntries(20);
-    feed.load(function (result) {
-        if (!result.error) {
-            var container = document.getElementById("feed");
-            var feedEntries = result.feed.entries;
-            for (var i = 0; i < feedEntries.length; i++) {
-                var feedEntry = feedEntries[i];
-                container.appendChild(createArticleEntry(feedEntry));
-            }
-        } else {
-            alert(result.error);
-        }
-        if(doneCallback !== null) {
-            doneCallback();
-        }
+function render(results) {
+  var container = document.getElementById("feed");
+  if(results.error) {
+      console.error(results.error);
+  } else {
+    var items = results.query.results.rss.channel.item;
+    items.forEach(function(item){
+      container.appendChild(createArticleEntry(item));
     });
+
+    var loaderElement = document.getElementById("loader");
+    if (loaderElement !== null) {
+      loaderElement.parentNode.removeChild(loaderElement);
+    }
+  }
+}
+
+function initialize()  {
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', constructUrl('http://www.weblogy.cz/export/rss/'));
+    document.getElementsByTagName('body')[0].appendChild(script);
 }
 
 function createArticleEntry(entry) {
@@ -41,14 +37,14 @@ function createArticleEntry(entry) {
     heading.appendChild(document.createTextNode(title[1]));
 
     var text = document.createElement("p");
-    text.appendChild(document.createTextNode(entry.content));
+    text.appendChild(document.createTextNode(entry.description));
 
     var author = document.createElement("span");
     author.appendChild(document.createTextNode(title[0]));
     author.setAttribute("class", "author");
 
     var date = document.createElement("span");
-    date.appendChild(document.createTextNode(getFormattedDate(entry.publishedDate)));
+    date.appendChild(document.createTextNode(getFormattedDate(entry.pubDate)));
     date.setAttribute("class", "date");
 
     oneArticleDiv.appendChild(heading);
@@ -93,3 +89,5 @@ function formatDate(dateStr, includeTime) {
 function padTwoDigits(n) {
     return (n < 10) ? ("0" + n) : n;
 }
+
+initialize();
