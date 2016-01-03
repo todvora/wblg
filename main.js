@@ -39,8 +39,9 @@ function createArticleEntry(entry) {
     var text = document.createElement("p");
     text.appendChild(document.createTextNode(entry.description));
 
+    var authorName = title[0];
     var author = document.createElement("span");
-    author.appendChild(document.createTextNode(title[0]));
+    author.appendChild(document.createTextNode(authorName));
     author.setAttribute("class", "author");
 
     var date = document.createElement("span");
@@ -54,6 +55,7 @@ function createArticleEntry(entry) {
 
     // whole article div is link (good for small screen devices)
     var link = document.createElement("a");
+    link.className += ' ' +  authorName.replace(/[^a-zA-Z0-9]/g, '-');
     link.setAttribute("href", entry.link);
 
     link.appendChild(oneArticleDiv);

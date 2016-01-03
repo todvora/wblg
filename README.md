@@ -49,3 +49,13 @@ Jsme ale na GitHubu, tak toho využijme. Stačí, když si tenhle projekt [forkn
 Je to fér k originálním weblogům?
 ---------------------------------
 Doufám, že ano. V zásadě jde jen o webovou RSS čtečku, přístupnou bez přihlášení. Weblogy poskytují RSS feed dobrovolně a veřejně. A já sám svůj [blog](http://www.tomas-dvorak.cz) také poskytuji weblogům ke zpracování. Pokud ale na věc máte jiný názor, rád si jej přečtu a zvážím, ať již na twitteru [@tdvorak](https://twitter.com/tdvorak) nebo na e-mailu [todvora@gmail.com](mailto:todvora@gmail.com).
+
+
+Adblock friendly
+----------------
+Nebaví vás články určitého autora? Žádný problém. Každý článek má přidánu CSS třídu se jménem blogu. Lze tak snadno přidat další adblock pravidlo a články onoho autora skrýt. 
+Například: 
+
+```
+###feed > .POOH-CZ
+```
